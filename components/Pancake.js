@@ -60,6 +60,8 @@ export default class Pancake extends React.Component {
     this.takeItOff = this.takeItOff.bind(this);
   }
 
+
+
   render() {
     const { timeCooked, flippedAt } = this.state;
     const firstSide = Boolean(this.state.flippedAt === undefined);
@@ -74,5 +76,13 @@ export default class Pancake extends React.Component {
         </div>
       </div>
     )
+  }
+
+  componentDidMount() {
+    this.startInterval()
+  }
+
+  componentWillUnmount(){
+    this.cleanUpInterval()
   }
 }
